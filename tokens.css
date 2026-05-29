@@ -1,0 +1,68 @@
+/* ============================================================
+   Prumo · tokens.css  ·  Design System v1.1
+   Fonte única de verdade. Slides, app, social e site herdam daqui.
+   Paleta corrigida para WCAG 2.1 AA. Não usar hex cru fora deste arquivo.
+   Fontes: Fraunces + Inter (SIL OFL). Import abaixo ou via <link>.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+  /* --- cor raw (paleta) --- */
+  --off-white:#F9F6F1; --charcoal:#1C1C1E; --charcoal-soft:#2C2C2E;
+  --olive:#4A6741; --olive-light:#8FB07E; --olive-soft:#EDF1E9;
+  --terracotta:#C4724A;        /* superfície / régua / ponto / texto >=18pt SOMENTE */
+  --terracotta-ink:#9E5734;    /* texto terracotta <18pt (5.04:1) */
+  --terracotta-light:#D98E6A;  /* acento terracotta sobre fundo escuro */
+  --terracotta-soft:#F5E4D8;
+  --slate:#4A6480; --slate-soft:#E2E7EE;
+  --text-body:#555555; --muted:#6E6A62; --muted-on-dark:#9A958C;
+  --on-dark:#DDDDDD; --line-light:#E5E0D6; --line-dark:#2F2F32;
+
+  /* --- cor semântica (use estes nomes ao construir) --- */
+  --bg:var(--off-white); --bg-inverse:var(--charcoal);
+  --text:var(--charcoal); --text-soft:var(--text-body); --text-mute:var(--muted);
+  --text-on-dark:var(--on-dark); --text-mute-on-dark:var(--muted-on-dark);
+  --heading:var(--olive); --rule:var(--terracotta);
+  --link:var(--terracotta-ink); --link-on-dark:var(--terracotta-light);
+
+  /* --- cor de produto (cor + letra F/E/C obrigatória) --- */
+  --p-familias:var(--terracotta); --p-escolas:var(--olive); --p-credenciados:var(--slate);
+
+  /* --- estados (nunca semáforo: positivo=olive, atenção=terracotta, info=slate) --- */
+  --state-ok:var(--olive); --state-ok-bg:var(--olive-soft);
+  --state-attn:var(--terracotta-ink); --state-attn-bg:var(--terracotta-soft);
+  --state-info:var(--slate); --state-info-bg:var(--slate-soft);
+
+  /* --- tipografia --- */
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-body:'Inter',-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+
+  /* --- ritmo (calmo: "crianças não cabem em respostas rápidas") --- */
+  --leading-body:1.65; --leading-tight:1.12; --measure:38rem; /* ~66ch */
+
+  /* --- espaço base-8 --- */
+  --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem; --s7:6.5rem; --s8:9rem;
+
+  /* --- raio --- */
+  --r-btn:10px; --r-card:14px; --r-avatar:9px;
+}
+
+/* ---------- base sugerida ---------- */
+body{
+  background:var(--bg); color:var(--text-soft);
+  font-family:var(--font-body); font-weight:400;
+  line-height:var(--leading-body); -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:var(--font-display); font-weight:400; color:var(--heading); line-height:var(--leading-tight); letter-spacing:-.01em}
+em{font-family:var(--font-display); font-style:italic}
+p{max-width:var(--measure)}
+a{color:var(--link); text-decoration-thickness:1px; text-underline-offset:2px}
+.eyebrow{font-family:var(--font-body); font-weight:600; font-size:.72rem; text-transform:uppercase; letter-spacing:.32em; color:var(--link)}
+.rule{width:2.75rem; height:3px; background:var(--rule); border:0}
+:focus-visible{outline:2px solid var(--terracotta); outline-offset:3px}
+
+/* dark theme: trocar heading/link pelas variantes claras (olive base e terracotta-ink reprovam em escuro) */
+.dark{background:var(--bg-inverse); color:var(--text-on-dark)}
+.dark h1,.dark h2,.dark h3{color:var(--off-white)}
+.dark .eyebrow{color:var(--link-on-dark)}
+.dark .accent{color:var(--olive-light)}
